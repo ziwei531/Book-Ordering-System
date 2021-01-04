@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ordering System</title>
+    <link rel="stylesheet" href="table.css">
+</head>
+<body>
+    <h1>Book Ordering System</h1>
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><input type="text" class="bookTitle"></td>
+            <td><input type="text" class="Author"></td>
+            <td>
+                <select name="Category" id="category">
+                    <option value="Default">Please choose the category</option>
+                    <option value="Business">Business</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Technology">Technology</option>
+                </select>
+            <td><input type="number" min="0" class="unit" id="unit1" value="0.00"></td>
+            <td><input type="number" min="0" class="Quantity" id="quantity1" value="0"></td>
+            <td><input type="text" class="total" id="bk1" value="0.00" disabled></td>
+        <tr>
+            <td>2</td>
+            <td><input type="text" class="bookTitle"></td>
+            <td><input type="text" class="Author"></td>
+            <td>
+                <select name="Category" id="category">
+                    <option value="Default">Please choose the category</option>
+                    <option value="Business">Business</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Technology">Technology</option>
+                </select>
+            <td><input type="number" min="0" class="unit" id="unit2" value="0.00"></td>
+            <td><input type="number" min="0" class="Quantity" id="quantity2" value="0"></td>
+            <td><input type="text" class="total" id="bk2" value="0.00" disabled></td>
+        <tr>
+            <td>3</td>
+            <td><input type="text" class="bookTitle"></td>
+            <td><input type="text" class="Author"></td>
+            <td>
+                <select name="Category" id="category">
+                    <option value="Default">Please choose the category</option>
+                    <option value="Business">Business</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Technology">Technology</option>
+                </select>
+            <td><input type="number" min="0" class="unit" id="unit3" value="0.00"></td>
+            <td><input type="number" min="0" class="Quantity" id="quantity3" value="0"></td>
+            <td><input type="text" class="total" id="bk3" value="0.00" disabled></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><input type="text" class="bookTitle"></td>
+            <td><input type="text" class="Author"></td>
+            <td>
+                <select name="Category" id="category">
+                    <option value="Default">Please choose the category</option>
+                    <option value="Business">Business</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Technology">Technology</option>
+                </select>
+            <td><input type="number" min="0" class="unit" id="unit4" value="0.00"></td>
+            <td><input type="number" min="0" class="Quantity" id="quantity4" value="0"></td>
+            <td><input type="text" class="total" id="bk4" value="0.00" disabled></td>
+        <tr>
+            <td>5</td>
+                <td><input type="text" class="bookTitle"></td>
+                <td><input type="text" class="Author"></td>
+                <td>
+                    <select name="Category" id="category">
+                        <option value="Default">Please choose the category</option>
+                        <option value="Business">Business</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Technology">Technology</option>
+                    </select>
+                <td><input type="number" min="0" class="unit" id="unit5" value="0.00"></td>
+                <td><input type="number" min="0" class="Quantity"  id="quantity5" value="0"></td>
+                <td><input type="text" class="total" id="bk5" value="0.00" disabled></td>
+        </tr>
+        <tr>
+            <td colspan="5" align="right"><button onclick="calculateTotal();" id="button1">Calculate Grand Total Price</button></td>
+            <td colspan="2"><input type="text" id="gTotal" disabled value="0"></td>
+        </tr>
+    </table>
+    
+    <script type="text/javascript"> 
+        function calculateTotal(){
+            const numberOfBooks = 5;
+            total = 0;
+        
+            for (i = 1; i <= numberOfBooks; ++i) {
+                Mtotal = 1;
+                let units = parseFloat(document.getElementById('unit' + i).value);
+                let quantity = parseFloat(document.getElementById('quantity' + i).value);
+                Mtotal = units * quantity;
+                document.getElementById('bk' + i).value = Mtotal.toFixed(2);
+                total += Mtotal;
+                document.getElementById('unit' + i).value = (units).toFixed(2);
+            }
+            document.getElementById('gTotal').value = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
